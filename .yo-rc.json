@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.illud.transportappgateway"
+    },
+    "jhipsterVersion": "5.8.1",
+    "applicationType": "gateway",
+    "baseName": "transportappgateway",
+    "packageName": "com.illud.transportappgateway",
+    "packageFolder": "com/illud/transportappgateway",
+    "serverPort": "8082",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  },
+  "generator-jhipster-swagger-cli": {
+    "promptValues": {
+      "inputSpec": "http://35.239.128.233:8081/v2/api-docs",
+      "cliName": "transport"
+    },
+    "apis": {
+      "transport": {
+        "spec": "http://35.239.128.233:8081/v2/api-docs"
+      }
+    }
+  }
+}
