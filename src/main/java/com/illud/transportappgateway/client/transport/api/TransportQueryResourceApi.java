@@ -6,6 +6,7 @@
 package com.illud.transportappgateway.client.transport.api;
 
 import com.illud.transportappgateway.client.transport.model.DataResponse;
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,10 +26,22 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-12T12:38:57.877+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-14T15:05:14.796+05:30[Asia/Kolkata]")
 
 @Api(value = "TransportQueryResource", description = "the TransportQueryResource API")
 public interface TransportQueryResourceApi {
+
+    @ApiOperation(value = "getBookingDetails", nickname = "getBookingDetailsUsingGET", notes = "", response = DefaultInfoRequest.class, tags={ "transport-query-resource", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "OK", response = DefaultInfoRequest.class),
+        @ApiResponse(code = 401, message = "Unauthorized"),
+        @ApiResponse(code = 403, message = "Forbidden"),
+        @ApiResponse(code = 404, message = "Not Found") })
+    @RequestMapping(value = "/api/query/vehicle-booking-details/{processInstanceId}",
+        produces = "*/*", 
+        method = RequestMethod.GET)
+    ResponseEntity<DefaultInfoRequest> getBookingDetailsUsingGET(@ApiParam(value = "processInstanceId",required=true) @PathVariable("processInstanceId") String processInstanceId);
+
 
     @ApiOperation(value = "getTasks", nickname = "getTasksUsingGET", notes = "", response = DataResponse.class, tags={ "transport-query-resource", })
     @ApiResponses(value = { 

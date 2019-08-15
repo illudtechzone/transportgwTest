@@ -9,6 +9,7 @@ import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.http.ResponseEntity;
 
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
@@ -34,9 +35,9 @@ public interface CommandService {
 	
 ////////////////////////////////////////////////transport ///////////////////////////////////////////
 
-	ResponseEntity<String> initiate(RiderLocationInfo riderlocationInfo);
+	ResponseEntity<String> initiate();
 	
-	ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide);
+	ResponseEntity<Void> initiateRide(String taskId, DefaultInfoRequest defaultInfoRequest);
 
 	ResponseEntity<Void> startRide(String taskId, RideStatus startRide);
 
@@ -45,6 +46,10 @@ public interface CommandService {
 	ResponseEntity<Void> paymentStatus(String taskId, PaymentStatus paymentStatus);
 
 	ResponseEntity<Void> rateAndReview(String taskId, RateAndReview rateAndReview);
+
+	ResponseEntity<Void> collectRiderLocationDetails(String taskId, DefaultInfoRequest defaultInfoRequest);
+
+	
 
 	
 

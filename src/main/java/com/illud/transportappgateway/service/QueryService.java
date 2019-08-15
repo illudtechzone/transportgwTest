@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DataResponse;
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 
 public interface QueryService {
 
@@ -30,7 +31,9 @@ public interface QueryService {
 			@Valid String dueAfter, @Valid Boolean withoutDueDate, @Valid Boolean excludeSubTasks,
 			@Valid Boolean active, @Valid Boolean includeTaskLocalVariables, @Valid Boolean includeProcessVariables,
 			@Valid String tenantId, @Valid String tenantIdLike, @Valid Boolean withoutTenantId,
-			@Valid String candidateOrAssigned, @Valid String category); 
+			@Valid String candidateOrAssigned, @Valid String category);
+
+	ResponseEntity<DefaultInfoRequest> getBookingDetails(String processInstanceId); 
 
 	
 	

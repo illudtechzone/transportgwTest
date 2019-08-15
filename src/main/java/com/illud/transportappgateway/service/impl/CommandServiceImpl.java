@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.illud.transportappgateway.client.transport.api.DriverResourceApi;
 import com.illud.transportappgateway.client.transport.api.RiderResourceApi;
 import com.illud.transportappgateway.client.transport.api.TransportCommandResourceApi;
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
@@ -71,14 +72,20 @@ private TransportCommandResourceApi transportCommandResourceApi;
 ////////////////////////////////////////////////transport ///////////////////////////////////////////
 	
 	@Override
-	public ResponseEntity<String> initiate(RiderLocationInfo riderlocationInfo) {
-		return transportCommandResourceApi.initateWorkflowUsingPOST(riderlocationInfo);
+	public ResponseEntity<String> initiate() {
+		return transportCommandResourceApi.initateWorkflowUsingPOST();
 	}
 	
 	@Override
-	public ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide) {
+	public ResponseEntity<Void> collectRiderLocationDetails(String taskId, DefaultInfoRequest defaultInfoRequest) {
 		
-		return transportCommandResourceApi.collectInformationsUsingPOST(taskId, initiateRide);
+		return transportCommandResourceApi.collectRiderLocationDetailsUsingPOST(taskId, defaultInfoRequest);
+	}
+	
+	@Override
+	public ResponseEntity<Void> initiateRide(String taskId, DefaultInfoRequest defaultInfoRequest) {
+		
+		return transportCommandResourceApi.collectRiderLocationDetailsUsingPOST(taskId, defaultInfoRequest);
 		
 	}
 
@@ -107,6 +114,8 @@ private TransportCommandResourceApi transportCommandResourceApi;
 		return transportCommandResourceApi.rateAndReviewUsingPOST(taskId, rateAndReview);
 		
 	}
+
+	
 	
 
 }

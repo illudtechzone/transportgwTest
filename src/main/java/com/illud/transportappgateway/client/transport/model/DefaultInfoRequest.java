@@ -10,12 +10,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * InitiateRide
+ * DefaultInfoRequest
  */
 @Validated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-14T15:05:14.796+05:30[Asia/Kolkata]")
 
-public class InitiateRide   {
+public class DefaultInfoRequest   {
   @JsonProperty("destination")
   private String destination = null;
 
@@ -25,13 +25,7 @@ public class InitiateRide   {
   @JsonProperty("pickUp")
   private String pickUp = null;
 
-  @JsonProperty("status")
-  private String status = null;
-
-  @JsonProperty("trackingId")
-  private String trackingId = null;
-
-  public InitiateRide destination(String destination) {
+  public DefaultInfoRequest destination(String destination) {
     this.destination = destination;
     return this;
   }
@@ -51,7 +45,7 @@ public class InitiateRide   {
     this.destination = destination;
   }
 
-  public InitiateRide distance(String distance) {
+  public DefaultInfoRequest distance(String distance) {
     this.distance = distance;
     return this;
   }
@@ -71,7 +65,7 @@ public class InitiateRide   {
     this.distance = distance;
   }
 
-  public InitiateRide pickUp(String pickUp) {
+  public DefaultInfoRequest pickUp(String pickUp) {
     this.pickUp = pickUp;
     return this;
   }
@@ -91,46 +85,6 @@ public class InitiateRide   {
     this.pickUp = pickUp;
   }
 
-  public InitiateRide status(String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public InitiateRide trackingId(String trackingId) {
-    this.trackingId = trackingId;
-    return this;
-  }
-
-  /**
-   * Get trackingId
-   * @return trackingId
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public String getTrackingId() {
-    return trackingId;
-  }
-
-  public void setTrackingId(String trackingId) {
-    this.trackingId = trackingId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -140,29 +94,25 @@ public class InitiateRide   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InitiateRide initiateRide = (InitiateRide) o;
-    return Objects.equals(this.destination, initiateRide.destination) &&
-        Objects.equals(this.distance, initiateRide.distance) &&
-        Objects.equals(this.pickUp, initiateRide.pickUp) &&
-        Objects.equals(this.status, initiateRide.status) &&
-        Objects.equals(this.trackingId, initiateRide.trackingId);
+    DefaultInfoRequest defaultInfoRequest = (DefaultInfoRequest) o;
+    return Objects.equals(this.destination, defaultInfoRequest.destination) &&
+        Objects.equals(this.distance, defaultInfoRequest.distance) &&
+        Objects.equals(this.pickUp, defaultInfoRequest.pickUp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, distance, pickUp, status, trackingId);
+    return Objects.hash(destination, distance, pickUp);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InitiateRide {\n");
+    sb.append("class DefaultInfoRequest {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
     sb.append("    pickUp: ").append(toIndentedString(pickUp)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

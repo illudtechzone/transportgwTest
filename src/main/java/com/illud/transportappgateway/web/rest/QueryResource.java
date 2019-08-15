@@ -20,9 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DataResponse;
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.service.QueryService;
 
 import io.swagger.annotations.ApiParam;
@@ -103,6 +103,11 @@ public class QueryResource {
 					includeProcessVariables, tenantId, tenantIdLike, withoutTenantId, candidateOrAssigned, category);
 	}
 	
+	@GetMapping("/vehicle-booking-details/{processInstanceId}")
+	public ResponseEntity<DefaultInfoRequest> getBookingDetails(@PathVariable(value = "processInstanceId") String processInstanceId) {
+
+		return queryService.getBookingDetails(processInstanceId);
+	}
 	
 	
 }

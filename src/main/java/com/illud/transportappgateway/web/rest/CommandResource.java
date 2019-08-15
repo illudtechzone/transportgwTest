@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
@@ -69,24 +69,24 @@ public class CommandResource {
 	//////////////////////////////////transport api////////////////////////////////////////////////////
     
     @PostMapping("/initiate") 
-	  public ResponseEntity<String> initateWorkflow(@RequestBody RiderLocationInfo riderlocationInfo) {
+	  public ResponseEntity<String> initateWorkflow() {
 	  
-		return commandService.initiate(riderlocationInfo);
+		return commandService.initiate();
 	  
 	
 	  
 	  }
     
     @PostMapping("/collectRiderLocationDetails/{taskId}")
-	public void collectRiderLocationDetails(@PathVariable String taskId, @RequestBody DefaultInfoRequest defaultInfoRequest)
+	public ResponseEntity<Void> collectRiderLocationDetails(@PathVariable String taskId, @RequestBody DefaultInfoRequest defaultInfoRequest)
 	{
-    	commandService.collectRiderLocationDetails(taskId,defaultInfoRequest);
+    	return commandService.collectRiderLocationDetails(taskId,defaultInfoRequest);
 	}
     
     @PostMapping("/initiateRide/{taskId}")
-    public ResponseEntity<Void> collectInformations(@PathVariable String taskId, @RequestBody InitiateRide initiateRide){
+    public ResponseEntity<Void> collectInformations(@PathVariable String taskId, @RequestBody DefaultInfoRequest defaultInfoRequest){
     	
-    	return commandService.initiateRide(taskId,initiateRide);
+    	return commandService.initiateRide(taskId,defaultInfoRequest);
     }
     
     @PostMapping("/startRide/{taskId}")

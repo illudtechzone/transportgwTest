@@ -39,6 +39,7 @@ import com.illud.transportappgateway.repository.search.*;
 import com.illud.transportappgateway.client.transport.api.TransportQueryResourceApi;
 import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DataResponse;
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 /**
  * Query Service Implementation
  */
@@ -92,6 +93,12 @@ public class QueryServiceImpl implements QueryService {
 				maximumPriority, minimumPriority, name, nameLike, owner, ownerLike, maximumPriority, processDefinitionId, processDefinitionKey, 
 				processDefinitionKeyLike, processDefinitionName, processDefinitionNameLike, processInstanceBusinessKey, processInstanceBusinessKeyLike,
 				processInstanceId, taskDefinitionKey, taskDefinitionKeyLike, tenantId, tenantIdLike, unassigned, withoutDueDate, withoutTenantId);
+	}
+
+	@Override
+	public ResponseEntity<DefaultInfoRequest> getBookingDetails(String processInstanceId) {
+		
+		return transportQueryResourceApi.getBookingDetailsUsingGET(processInstanceId);
 	}
 
 	

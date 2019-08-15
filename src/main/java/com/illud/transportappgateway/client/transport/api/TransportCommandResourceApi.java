@@ -5,11 +5,11 @@
  */
 package com.illud.transportappgateway.client.transport.api;
 
+import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
-import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -29,22 +29,22 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-12T12:38:57.877+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-14T15:05:14.796+05:30[Asia/Kolkata]")
 
 @Api(value = "TransportCommandResource", description = "the TransportCommandResource API")
 public interface TransportCommandResourceApi {
 
-    @ApiOperation(value = "collectInformations", nickname = "collectInformationsUsingPOST", notes = "", tags={ "transport-command-resource", })
+    @ApiOperation(value = "collectRiderLocationDetails", nickname = "collectRiderLocationDetailsUsingPOST", notes = "", tags={ "transport-command-resource", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 201, message = "Created"),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 403, message = "Forbidden"),
         @ApiResponse(code = 404, message = "Not Found") })
-    @RequestMapping(value = "/api/initiateRide/{taskId}",
+    @RequestMapping(value = "/api/collectRiderLocationDetails/{taskId}",
         consumes = "application/json",
         method = RequestMethod.POST)
-    ResponseEntity<Void> collectInformationsUsingPOST(@ApiParam(value = "taskId",required=true) @PathVariable("taskId") String taskId,@ApiParam(value = "initiateRide" ,required=true )  @Valid @RequestBody InitiateRide initiateRide);
+    ResponseEntity<Void> collectRiderLocationDetailsUsingPOST(@ApiParam(value = "taskId",required=true) @PathVariable("taskId") String taskId,@ApiParam(value = "defaultInfoRequest" ,required=true )  @Valid @RequestBody DefaultInfoRequest defaultInfoRequest);
 
 
     @ApiOperation(value = "initateWorkflow", nickname = "initateWorkflowUsingPOST", notes = "", response = String.class, tags={ "transport-command-resource", })
@@ -56,9 +56,21 @@ public interface TransportCommandResourceApi {
         @ApiResponse(code = 404, message = "Not Found") })
     @RequestMapping(value = "/api/initiate",
         produces = "*/*", 
+        method = RequestMethod.POST)
+    ResponseEntity<String> initateWorkflowUsingPOST();
+
+
+    @ApiOperation(value = "initiateride", nickname = "initiaterideUsingPOST", notes = "", tags={ "transport-command-resource", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "OK"),
+        @ApiResponse(code = 201, message = "Created"),
+        @ApiResponse(code = 401, message = "Unauthorized"),
+        @ApiResponse(code = 403, message = "Forbidden"),
+        @ApiResponse(code = 404, message = "Not Found") })
+    @RequestMapping(value = "/api/initiateRide/{taskId}",
         consumes = "application/json",
         method = RequestMethod.POST)
-    ResponseEntity<String> initateWorkflowUsingPOST(@ApiParam(value = "riderlocationInfo" ,required=true )  @Valid @RequestBody RiderLocationInfo riderLocationInfo);
+    ResponseEntity<Void> initiaterideUsingPOST(@ApiParam(value = "taskId",required=true) @PathVariable("taskId") String taskId,@ApiParam(value = "initiateRide" ,required=true )  @Valid @RequestBody InitiateRide initiateRide);
 
 
     @ApiOperation(value = "payment", nickname = "paymentUsingPOST", notes = "", tags={ "transport-command-resource", })
