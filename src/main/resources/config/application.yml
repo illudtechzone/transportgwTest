@@ -209,4 +209,4 @@ jhipster:
 
 application:
 transport:
-   url: 35.239.128.233:8081
+   url: 35.232.29.128:8081

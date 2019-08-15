@@ -2,6 +2,8 @@ package com.illud.transportappgateway.service.impl;
 
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.elasticsearch.search.suggest.SuggestionBuilder;
@@ -99,6 +101,24 @@ public class QueryServiceImpl implements QueryService {
 	public ResponseEntity<DefaultInfoRequest> getBookingDetails(String processInstanceId) {
 		
 		return transportQueryResourceApi.getBookingDetailsUsingGET(processInstanceId);
+	}
+
+	@Override
+	public ResponseEntity<List<DefaultInfoRequest>> getAllOpenBookings(String name, String nameLike, String description,
+			String priority, String minimumPriority, String maximumPriority, String assignee, String assigneeLike,
+			String owner, String ownerLike, String unassigned, String delegationState, String candidateUser,
+			String candidateGroup, String candidateGroups, String involvedUser, String taskDefinitionKey,
+			String taskDefinitionKeyLike, String processInstanceId, String processInstanceBusinessKey,
+			String processInstanceBusinessKeyLike, @Valid String processDefinitionId,
+			@Valid String processDefinitionKey, @Valid String processDefinitionKeyLike,
+			@Valid String processDefinitionName, @Valid String processDefinitionNameLike, @Valid String executionId,
+			@Valid String createdOn, @Valid String createdBefore, @Valid String createdAfter, @Valid String dueOn,
+			@Valid String dueBefore, @Valid String dueAfter, @Valid Boolean withoutDueDate,
+			@Valid Boolean excludeSubTasks, @Valid Boolean active, @Valid Boolean includeTaskLocalVariables,
+			@Valid Boolean includeProcessVariables, @Valid String tenantId, @Valid String tenantIdLike,
+			@Valid Boolean withoutTenantId, @Valid String candidateOrAssigned, @Valid String category) {
+		
+		return transportQueryResourceApi.getAllOpenBookingsUsingGET(active, assignee, assigneeLike, candidateGroup, candidateGroups, candidateOrAssigned, candidateUser, category, createdAfter, createdBefore, createdOn, delegationState, description, dueAfter, dueBefore, dueOn, excludeSubTasks, executionId, includeProcessVariables, includeTaskLocalVariables, involvedUser, maximumPriority, minimumPriority, name, nameLike, owner, ownerLike, maximumPriority, processDefinitionId, processDefinitionKey, processDefinitionKeyLike, processDefinitionName, processDefinitionNameLike, processInstanceBusinessKey, processInstanceBusinessKeyLike, processInstanceId, taskDefinitionKey, taskDefinitionKeyLike, tenantId, tenantIdLike, unassigned, withoutDueDate, withoutTenantId);
 	}
 
 	
