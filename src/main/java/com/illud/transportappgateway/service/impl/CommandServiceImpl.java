@@ -83,9 +83,9 @@ private TransportCommandResourceApi transportCommandResourceApi;
 	}
 	
 	@Override
-	public ResponseEntity<Void> initiateRide(String taskId, DefaultInfoRequest defaultInfoRequest) {
+	public ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide) {
 		
-		return transportCommandResourceApi.collectRiderLocationDetailsUsingPOST(taskId, defaultInfoRequest);
+		return transportCommandResourceApi.initiaterideUsingPOST(taskId, initiateRide);
 		
 	}
 

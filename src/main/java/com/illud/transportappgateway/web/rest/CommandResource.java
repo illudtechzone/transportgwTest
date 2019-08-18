@@ -84,9 +84,9 @@ public class CommandResource {
 	}
     
     @PostMapping("/initiateRide/{taskId}")
-    public ResponseEntity<Void> collectInformations(@PathVariable String taskId, @RequestBody DefaultInfoRequest defaultInfoRequest){
+    public ResponseEntity<Void> initiateRide(@PathVariable String taskId, @RequestBody InitiateRide initiateRide){
     	
-    	return commandService.initiateRide(taskId,defaultInfoRequest);
+    	return commandService.initiateRide(taskId,initiateRide);
     }
     
     @PostMapping("/startRide/{taskId}")

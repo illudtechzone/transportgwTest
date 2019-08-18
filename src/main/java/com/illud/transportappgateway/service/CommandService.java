@@ -37,7 +37,7 @@ public interface CommandService {
 
 	ResponseEntity<String> initiate();
 	
-	ResponseEntity<Void> initiateRide(String taskId, DefaultInfoRequest defaultInfoRequest);
+	ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide);
 
 	ResponseEntity<Void> startRide(String taskId, RideStatus startRide);
 
