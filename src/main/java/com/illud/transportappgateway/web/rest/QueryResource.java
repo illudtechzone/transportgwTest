@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DataResponse;
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
+import com.illud.transportappgateway.client.transport.model.OpenBookings;
 import com.illud.transportappgateway.service.QueryService;
 
 import io.swagger.annotations.ApiParam;
@@ -111,7 +112,7 @@ public class QueryResource {
 	
 	
 	@GetMapping("/myAppointments")
-	public ResponseEntity<List<DefaultInfoRequest>> getAllOpenBookings(@RequestParam(value = "name", required = false) String name,
+	public ResponseEntity<List<OpenBookings>> getAllOpenBookings(@RequestParam(value = "name", required = false) String name,
 			@RequestParam(value = "nameLike", required = false) String nameLike,
 			@RequestParam(value = "description", required = false) String description,
 			@RequestParam(value = "priority", required = false) String priority,

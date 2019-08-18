@@ -10,12 +10,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * DefaultInfoRequest
+ * OpenBookings
  */
 @Validated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-18T12:53:56+05:30[Asia/Kolkata]")
 
-public class DefaultInfoRequest   {
+public class OpenBookings   {
   @JsonProperty("destination")
   private String destination = null;
 
@@ -25,7 +25,10 @@ public class DefaultInfoRequest   {
   @JsonProperty("pickUp")
   private String pickUp = null;
 
-  public DefaultInfoRequest destination(String destination) {
+  @JsonProperty("trackingProcessinstanceId")
+  private String trackingProcessinstanceId = null;
+
+  public OpenBookings destination(String destination) {
     this.destination = destination;
     return this;
   }
@@ -45,7 +48,7 @@ public class DefaultInfoRequest   {
     this.destination = destination;
   }
 
-  public DefaultInfoRequest distance(String distance) {
+  public OpenBookings distance(String distance) {
     this.distance = distance;
     return this;
   }
@@ -65,7 +68,7 @@ public class DefaultInfoRequest   {
     this.distance = distance;
   }
 
-  public DefaultInfoRequest pickUp(String pickUp) {
+  public OpenBookings pickUp(String pickUp) {
     this.pickUp = pickUp;
     return this;
   }
@@ -85,6 +88,26 @@ public class DefaultInfoRequest   {
     this.pickUp = pickUp;
   }
 
+  public OpenBookings trackingProcessinstanceId(String trackingProcessinstanceId) {
+    this.trackingProcessinstanceId = trackingProcessinstanceId;
+    return this;
+  }
+
+  /**
+   * Get trackingProcessinstanceId
+   * @return trackingProcessinstanceId
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getTrackingProcessinstanceId() {
+    return trackingProcessinstanceId;
+  }
+
+  public void setTrackingProcessinstanceId(String trackingProcessinstanceId) {
+    this.trackingProcessinstanceId = trackingProcessinstanceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,25 +117,27 @@ public class DefaultInfoRequest   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DefaultInfoRequest defaultInfoRequest = (DefaultInfoRequest) o;
-    return Objects.equals(this.destination, defaultInfoRequest.destination) &&
-        Objects.equals(this.distance, defaultInfoRequest.distance) &&
-        Objects.equals(this.pickUp, defaultInfoRequest.pickUp);
+    OpenBookings openBookings = (OpenBookings) o;
+    return Objects.equals(this.destination, openBookings.destination) &&
+        Objects.equals(this.distance, openBookings.distance) &&
+        Objects.equals(this.pickUp, openBookings.pickUp) &&
+        Objects.equals(this.trackingProcessinstanceId, openBookings.trackingProcessinstanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, distance, pickUp);
+    return Objects.hash(destination, distance, pickUp, trackingProcessinstanceId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DefaultInfoRequest {\n");
+    sb.append("class OpenBookings {\n");
     
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
     sb.append("    pickUp: ").append(toIndentedString(pickUp)).append("\n");
+    sb.append("    trackingProcessinstanceId: ").append(toIndentedString(trackingProcessinstanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

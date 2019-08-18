@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DataResponse;
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
+import com.illud.transportappgateway.client.transport.model.OpenBookings;
 
 public interface QueryService {
 
@@ -35,7 +36,7 @@ public interface QueryService {
 
 	ResponseEntity<DefaultInfoRequest> getBookingDetails(String processInstanceId);
 
-	ResponseEntity<List<DefaultInfoRequest>> getAllOpenBookings(String name, String nameLike, String description, String priority,
+	ResponseEntity<List<OpenBookings>> getAllOpenBookings(String name, String nameLike, String description, String priority,
 			String minimumPriority, String maximumPriority, String assignee, String assigneeLike, String owner,
 			String ownerLike, String unassigned, String delegationState, String candidateUser, String candidateGroup,
 			String candidateGroups, String involvedUser, String taskDefinitionKey, String taskDefinitionKeyLike,
