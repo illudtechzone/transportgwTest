@@ -11,6 +11,7 @@ import com.illud.transportappgateway.client.transport.api.RiderResourceApi;
 import com.illud.transportappgateway.client.transport.api.TransportCommandResourceApi;
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
+import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
@@ -83,9 +84,9 @@ private TransportCommandResourceApi transportCommandResourceApi;
 	}
 	
 	@Override
-	public ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide) {
+	public ResponseEntity<Void> initiateRide(String taskId, DriverInfo driverInfo) {
 		
-		return transportCommandResourceApi.initiaterideUsingPOST(taskId, initiateRide);
+		return transportCommandResourceApi.chooseDriverUsingPOST(taskId, driverInfo);
 		
 	}
 

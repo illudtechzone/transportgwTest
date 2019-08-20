@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
+import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
@@ -37,7 +38,7 @@ public interface CommandService {
 
 	ResponseEntity<String> initiate();
 	
-	ResponseEntity<Void> initiateRide(String taskId, InitiateRide initiateRide);
+	ResponseEntity<Void> initiateRide(String taskId, DriverInfo driverInfo);
 
 	ResponseEntity<Void> startRide(String taskId, RideStatus startRide);
 

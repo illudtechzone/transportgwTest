@@ -10,19 +10,65 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * RideStatus
+ * DriverInfo
  */
 @Validated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-20T12:50:00.241+05:30[Asia/Kolkata]")
 
-public class RideStatus   {
+public class DriverInfo   {
+  @JsonProperty("email")
+  private String email = null;
+
+  @JsonProperty("name")
+  private String name = null;
+
   @JsonProperty("status")
   private String status = null;
 
   @JsonProperty("trackingId")
   private String trackingId = null;
 
-  public RideStatus status(String status) {
+  public DriverInfo email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public DriverInfo name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DriverInfo status(String status) {
     this.status = status;
     return this;
   }
@@ -42,7 +88,7 @@ public class RideStatus   {
     this.status = status;
   }
 
-  public RideStatus trackingId(String trackingId) {
+  public DriverInfo trackingId(String trackingId) {
     this.trackingId = trackingId;
     return this;
   }
@@ -71,21 +117,25 @@ public class RideStatus   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RideStatus rideStatus = (RideStatus) o;
-    return Objects.equals(this.status, rideStatus.status) &&
-        Objects.equals(this.trackingId, rideStatus.trackingId);
+    DriverInfo driverInfo = (DriverInfo) o;
+    return Objects.equals(this.email, driverInfo.email) &&
+        Objects.equals(this.name, driverInfo.name) &&
+        Objects.equals(this.status, driverInfo.status) &&
+        Objects.equals(this.trackingId, driverInfo.trackingId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, trackingId);
+    return Objects.hash(email, name, status, trackingId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RideStatus {\n");
+    sb.append("class DriverInfo {\n");
     
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
     sb.append("}");

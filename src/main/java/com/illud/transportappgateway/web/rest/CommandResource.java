@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
+import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
@@ -84,9 +85,9 @@ public class CommandResource {
 	}
     
     @PostMapping("/initiateRide/{taskId}")
-    public ResponseEntity<Void> initiateRide(@PathVariable String taskId, @RequestBody InitiateRide initiateRide){
+    public ResponseEntity<Void> initiateRide(@PathVariable String taskId, @RequestBody DriverInfo driverInfo){
     	
-    	return commandService.initiateRide(taskId,initiateRide);
+    	return commandService.initiateRide(taskId,driverInfo);
     }
     
     @PostMapping("/startRide/{taskId}")
