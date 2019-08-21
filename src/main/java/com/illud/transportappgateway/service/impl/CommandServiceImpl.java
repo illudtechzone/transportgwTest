@@ -84,9 +84,9 @@ private TransportCommandResourceApi transportCommandResourceApi;
 	}
 	
 	@Override
-	public ResponseEntity<Void> chooseDriver(String taskId, DriverInfo driverInfo) {
+	public ResponseEntity<Void> driverResponse(String taskId, DriverInfo driverInfo) {
 		
-		return transportCommandResourceApi.chooseDriverUsingPOST(taskId, driverInfo);
+		return transportCommandResourceApi.driverResponseUsingPOST(taskId, driverInfo);
 		
 	}
 

@@ -38,7 +38,7 @@ public interface CommandService {
 
 	ResponseEntity<String> initiate();
 	
-	ResponseEntity<Void> chooseDriver(String taskId, DriverInfo driverInfo);
+	ResponseEntity<Void> driverResponse(String taskId, DriverInfo driverInfo);
 
 	ResponseEntity<Void> startRide(String taskId, RideStatus startRide);
 

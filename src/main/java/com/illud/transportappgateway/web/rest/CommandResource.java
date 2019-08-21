@@ -84,10 +84,10 @@ public class CommandResource {
     	return commandService.collectRiderLocationDetails(taskId,defaultInfoRequest);
 	}
     
-    @PostMapping("/chooseDriver/{taskId}")
-    public ResponseEntity<Void> chooseDriver(@PathVariable String taskId, @RequestBody DriverInfo driverInfo){
+    @PostMapping("/driverResponse/{taskId}")
+    public ResponseEntity<Void> driverResponse(@PathVariable String taskId, @RequestBody DriverInfo driverInfo){
     	
-    	return commandService.chooseDriver(taskId,driverInfo);
+    	return commandService.driverResponse(taskId,driverInfo);
     }
     
     @PostMapping("/startRide/{taskId}")
