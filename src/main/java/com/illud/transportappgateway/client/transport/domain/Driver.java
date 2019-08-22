@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.GeoPointField;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -38,6 +39,7 @@ public class Driver {
   private String lastName = null;
 
   @JsonProperty("location")
+  @GeoPointField
   private String location = null;
 
   @JsonProperty("mobileNumber")
