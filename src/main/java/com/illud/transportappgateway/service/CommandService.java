@@ -15,6 +15,7 @@ import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
+import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
@@ -49,6 +50,8 @@ public interface CommandService {
 	ResponseEntity<Void> rateAndReview(String taskId, RateAndReview rateAndReview);
 
 	ResponseEntity<Void> collectRiderLocationDetails(String taskId, DefaultInfoRequest defaultInfoRequest);
+
+	String sendRequestToDriver(RideDTO rideDto);
 
 	
 

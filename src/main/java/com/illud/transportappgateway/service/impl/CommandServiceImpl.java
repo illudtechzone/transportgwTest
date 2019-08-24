@@ -3,6 +3,7 @@ package com.illud.transportappgateway.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
+import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
@@ -23,6 +25,8 @@ import com.illud.transportappgateway.service.CommandService;
 @Service
 @Transactional
 public class CommandServiceImpl implements CommandService {
+	@Autowired
+    private SimpMessagingTemplate messageSender;
 	
 @Autowired
 private DriverResourceApi driverResourceApi;
@@ -32,6 +36,9 @@ private RiderResourceApi riderResourceApi;
 
 @Autowired
 private TransportCommandResourceApi transportCommandResourceApi;
+
+@Autowired
+private CommandService commandService;
 
 	@Override
 	public ResponseEntity<DriverDTO> createDriver(DriverDTO driverDTO) {
@@ -114,6 +121,13 @@ private TransportCommandResourceApi transportCommandResourceApi;
 		
 		return transportCommandResourceApi.rateAndReviewUsingPOST(taskId, rateAndReview);
 		
+	}
+
+	@Override
+	public String sendRequestToDriver(RideDTO rideDto) {
+		
+		messageSender.convertAndSendToUser(rideDto.getDriverId(), "/topic/reply", rideDto);
+		return "sendAlready";
 	}
 
 	

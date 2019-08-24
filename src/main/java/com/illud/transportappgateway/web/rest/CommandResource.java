@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.illud.transportappgateway.client.transport.domain.Driver;
 import com.illud.transportappgateway.client.transport.model.DefaultInfoRequest;
 import com.illud.transportappgateway.client.transport.model.DriverDTO;
 import com.illud.transportappgateway.client.transport.model.DriverInfo;
 import com.illud.transportappgateway.client.transport.model.InitiateRide;
 import com.illud.transportappgateway.client.transport.model.PaymentStatus;
 import com.illud.transportappgateway.client.transport.model.RateAndReview;
+import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
@@ -114,5 +116,12 @@ public class CommandResource {
 		 
 		 return commandService.rateAndReview(taskId,rateAndReview);
 	 }
+	 
+	 
+	 @PostMapping("/request/driver")
+	public String sendRequestToDriver(@RequestBody RideDTO rideDto ) {
+		commandService.sendRequestToDriver(rideDto);
+					return "RequestSend";
+		}
 	
 }

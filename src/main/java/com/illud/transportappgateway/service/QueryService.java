@@ -48,7 +48,12 @@ public interface QueryService {
 			@Valid String dueAfter, @Valid Boolean withoutDueDate, @Valid Boolean excludeSubTasks,
 			@Valid Boolean active, @Valid Boolean includeTaskLocalVariables, @Valid Boolean includeProcessVariables,
 			@Valid String tenantId, @Valid String tenantIdLike, @Valid Boolean withoutTenantId,
-			@Valid String candidateOrAssigned, @Valid String category); 
+			@Valid String candidateOrAssigned, @Valid String category);
+
+	ResponseEntity<List<OpenBookings>> getAllPendingBookings(String name, String nameLike, String assignee,
+			String assigneeLike, String candidateUser, String candidateGroup, String candidateGroups,
+			String processInstanceId, @Valid String processDefinitionId, @Valid String processDefinitionKey,
+			@Valid String createdOn, @Valid String createdBefore, @Valid String createdAfter); 
 
 	
 	

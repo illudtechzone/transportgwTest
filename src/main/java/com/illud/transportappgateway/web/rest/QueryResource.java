@@ -168,10 +168,30 @@ public class QueryResource {
 				withoutTenantId, candidateOrAssigned, category);
 	}
 	
+
 	
-	@GetMapping("/name/{userName}")
-	public String sendToUser(@PathVariable String userName) {
-messageSender.convertAndSendToUser(userName, "/topic/reply", "God SAves you ");
-		return "successful name";
+
+	@GetMapping("/getAllPendingBookings")
+	public ResponseEntity<List<OpenBookings>> getAllPendingBookings(@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "nameLike", required = false) String nameLike,
+			@RequestParam(value = "assignee", required = false) String assignee,
+			@RequestParam(value = "assigneeLike", required = false) String assigneeLike,
+			@RequestParam(value = "candidateUser", required = false) String candidateUser,
+			@RequestParam(value = "candidateGroup", required = false) String candidateGroup,
+			@RequestParam(value = "candidateGroups", required = false) String candidateGroups,
+			
+			
+			@RequestParam(value = "processInstanceId", required = false) String processInstanceId,
+			
+			@ApiParam(value = "Only return tasks which are part of a process instance which has a process definition with the given id.") @Valid @RequestParam(value = "processDefinitionId", required = false) String processDefinitionId,
+			@ApiParam(value = "Only return tasks which are part of a process instance which has a process definition with the given key.") @Valid @RequestParam(value = "processDefinitionKey", required = false) String processDefinitionKey,
+		@ApiParam(value = "Only return tasks which are created on the given date.") @Valid @RequestParam(value = "createdOn", required = false) String createdOn,
+		@ApiParam(value = "Only return tasks which are created before the given date.") @Valid @RequestParam(value = "createdBefore", required = false) String createdBefore,
+		@ApiParam(value = "Only return tasks which are created after the given date.") @Valid @RequestParam(value = "createdAfter", required = false) String createdAfter){
+		
+		return queryService.getAllPendingBookings(name,nameLike,assignee,assigneeLike,candidateUser,candidateGroup,candidateGroups,processInstanceId,processDefinitionId,processDefinitionKey,createdOn, createdBefore, createdAfter);
+
 	}
+
+	
 }

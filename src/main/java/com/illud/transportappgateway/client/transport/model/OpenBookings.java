@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * OpenBookings
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-21T12:16:18.895+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-24T10:31:22.496+05:30[Asia/Kolkata]")
 
 public class OpenBookings   {
   @JsonProperty("destination")
@@ -24,6 +24,12 @@ public class OpenBookings   {
 
   @JsonProperty("pickUp")
   private String pickUp = null;
+
+  @JsonProperty("taskId")
+  private String taskId = null;
+
+  @JsonProperty("taskName")
+  private String taskName = null;
 
   @JsonProperty("trackingProcessinstanceId")
   private String trackingProcessinstanceId = null;
@@ -88,6 +94,46 @@ public class OpenBookings   {
     this.pickUp = pickUp;
   }
 
+  public OpenBookings taskId(String taskId) {
+    this.taskId = taskId;
+    return this;
+  }
+
+  /**
+   * Get taskId
+   * @return taskId
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public OpenBookings taskName(String taskName) {
+    this.taskName = taskName;
+    return this;
+  }
+
+  /**
+   * Get taskName
+   * @return taskName
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public String getTaskName() {
+    return taskName;
+  }
+
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
+  }
+
   public OpenBookings trackingProcessinstanceId(String trackingProcessinstanceId) {
     this.trackingProcessinstanceId = trackingProcessinstanceId;
     return this;
@@ -121,12 +167,14 @@ public class OpenBookings   {
     return Objects.equals(this.destination, openBookings.destination) &&
         Objects.equals(this.distance, openBookings.distance) &&
         Objects.equals(this.pickUp, openBookings.pickUp) &&
+        Objects.equals(this.taskId, openBookings.taskId) &&
+        Objects.equals(this.taskName, openBookings.taskName) &&
         Objects.equals(this.trackingProcessinstanceId, openBookings.trackingProcessinstanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destination, distance, pickUp, trackingProcessinstanceId);
+    return Objects.hash(destination, distance, pickUp, taskId, taskName, trackingProcessinstanceId);
   }
 
   @Override
@@ -137,6 +185,8 @@ public class OpenBookings   {
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
     sb.append("    pickUp: ").append(toIndentedString(pickUp)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
+    sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("    trackingProcessinstanceId: ").append(toIndentedString(trackingProcessinstanceId)).append("\n");
     sb.append("}");
     return sb.toString();
