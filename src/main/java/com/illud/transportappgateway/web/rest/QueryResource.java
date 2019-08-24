@@ -11,6 +11,7 @@ import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Metrics;
 import org.springframework.data.geo.Point;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,8 @@ public class QueryResource {
 	private final Logger log = LoggerFactory.getLogger(QueryResource.class);
 	@Autowired
 	QueryService queryService;
-
+	@Autowired
+    private SimpMessagingTemplate messageSender;
 	
 	@GetMapping("/findByNearestLocation/{latLon}/{kiloMeter}")
 	public Page<Driver> searchByNearestLocation(@PathVariable String latLon, @PathVariable Double kiloMeter,Pageable pageable) {
@@ -166,4 +168,10 @@ public class QueryResource {
 				withoutTenantId, candidateOrAssigned, category);
 	}
 	
+	
+	@GetMapping("/name/{userName}")
+	public String sendToUser(@PathVariable String userName) {
+messageSender.convertAndSendToUser(userName, "/topic/reply", "God SAves you ");
+		return "successful name";
+	}
 }
