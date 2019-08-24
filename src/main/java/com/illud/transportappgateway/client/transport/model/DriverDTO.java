@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import org.springframework.data.elasticsearch.annotations.GeoPointField;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -15,7 +13,7 @@ import javax.validation.constraints.*;
  * DriverDTO
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-21T12:16:18.895+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-24T10:31:22.496+05:30[Asia/Kolkata]")
 
 public class DriverDTO   {
   @JsonProperty("drivingLicenseNumber")
@@ -40,7 +38,6 @@ public class DriverDTO   {
   private String lastName = null;
 
   @JsonProperty("location")
-  @GeoPointField
   private String location = null;
 
   @JsonProperty("mobileNumber")

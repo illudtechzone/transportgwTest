@@ -119,7 +119,16 @@ public class QueryServiceImpl implements QueryService {
 			@Valid Boolean includeProcessVariables, @Valid String tenantId, @Valid String tenantIdLike,
 			@Valid Boolean withoutTenantId, @Valid String candidateOrAssigned, @Valid String category) {
 		
-		return transportQueryResourceApi.getAllOpenBookingsUsingGET(active, assignee, assigneeLike, candidateGroup, candidateGroups, candidateOrAssigned, candidateUser, category, createdAfter, createdBefore, createdOn, delegationState, description, dueAfter, dueBefore, dueOn, excludeSubTasks, executionId, includeProcessVariables, includeTaskLocalVariables, involvedUser, maximumPriority, minimumPriority, name, nameLike, owner, ownerLike, maximumPriority, processDefinitionId, processDefinitionKey, processDefinitionKeyLike, processDefinitionName, processDefinitionNameLike, processInstanceBusinessKey, processInstanceBusinessKeyLike, processInstanceId, taskDefinitionKey, taskDefinitionKeyLike, tenantId, tenantIdLike, unassigned, withoutDueDate, withoutTenantId);
+		return transportQueryResourceApi.getAllOpenBookingsUsingGET(assignee, assigneeLike, candidateGroup, candidateGroups, candidateOrAssigned, candidateUser, category, createdAfter, createdBefore);
+	}
+
+	@Override
+	public ResponseEntity<List<OpenBookings>> getAllPendingBookings(String name, String nameLike, String assignee,
+			String assigneeLike, String candidateUser, String candidateGroup, String candidateGroups,
+			String processInstanceId, @Valid String processDefinitionId, @Valid String processDefinitionKey,
+			@Valid String createdOn, @Valid String createdBefore, @Valid String createdAfter) {
+		// TODO Auto-generated method stub
+		return transportQueryResourceApi.getAllPendingBookingsUsingGET(assignee, assigneeLike, candidateGroup, candidateGroups, candidateUser, createdAfter, createdBefore, createdOn, name, nameLike, processDefinitionId, processDefinitionKey, processInstanceId);
 	}
 
 	
