@@ -35,8 +35,7 @@ public class QueryResource {
 	private final Logger log = LoggerFactory.getLogger(QueryResource.class);
 	@Autowired
 	QueryService queryService;
-	@Autowired
-    private SimpMessagingTemplate messageSender;
+	
 	
 	@GetMapping("/findByNearestLocation/{latLon}/{kiloMeter}")
 	public Page<Driver> searchByNearestLocation(@PathVariable String latLon, @PathVariable Double kiloMeter,Pageable pageable) {
