@@ -28,6 +28,7 @@ import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
+import com.illud.transportappgateway.domain.RideDtoWrapper;
 import com.illud.transportappgateway.service.CommandService;
 
 @RestController
@@ -119,9 +120,9 @@ public class CommandResource {
 	 
 	 
 	 @PostMapping("/request/driver/{processInstanceId}")
-	public String sendRequestToDriver(@RequestBody RideDTO rideDto,@PathVariable String processInstanceId ) {
-		commandService.sendRequestToDriver(rideDto,processInstanceId);
-					return "RequestSend";
+	public ResponseEntity<RideDtoWrapper> sendRequestToDriver(@RequestBody RideDTO rideDto,@PathVariable String processInstanceId ) {
+		return commandService.sendRequestToDriver(rideDto,processInstanceId);
+				
 		}
 	
 }

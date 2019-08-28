@@ -133,6 +133,12 @@ private CommandService commandService;
 
 	
 	}
+	public ResponseEntity<RideDtoWrapper> getRideWrapper(RideDtoWrapper rdw) {
+		
+		return ResponseEntity.ok().body(rdw);
+
+	
+	}
 
 }
  
