@@ -1,12 +1,11 @@
 package com.illud.transportappgateway.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.illud.transportappgateway.client.transport.api.DriverResourceApi;
 import com.illud.transportappgateway.client.transport.api.RiderResourceApi;
 import com.illud.transportappgateway.client.transport.api.TransportCommandResourceApi;
@@ -20,6 +19,7 @@ import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
+import com.illud.transportappgateway.domain.RideDtoWrapper;
 import com.illud.transportappgateway.service.CommandService;
 
 @Service
@@ -124,14 +124,15 @@ private CommandService commandService;
 	}
 
 	@Override
-	public String sendRequestToDriver(RideDTO rideDto) {
-		
-		messageSender.convertAndSendToUser(rideDto.getDriverId(), "/topic/reply", rideDto);
-		return "sendAlready";
-	}
+	public ResponseEntity<RideDtoWrapper> sendRequestToDriver(RideDTO rideDto,String processInstanceId) {
+		RideDtoWrapper rideDtoWrapper=new RideDtoWrapper();
+		rideDtoWrapper.setRideDTO(rideDto);
+		rideDtoWrapper.setProcessInstanceId(processInstanceId);
+		messageSender.convertAndSendToUser(rideDto.getDriverId(), "/topic/reply",rideDtoWrapper );
+		return ResponseEntity.ok().body(rideDtoWrapper);
 
 	
-	
+	}
 
 }
  

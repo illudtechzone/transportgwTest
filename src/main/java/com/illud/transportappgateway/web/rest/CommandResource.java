@@ -118,9 +118,9 @@ public class CommandResource {
 	 }
 	 
 	 
-	 @PostMapping("/request/driver")
-	public String sendRequestToDriver(@RequestBody RideDTO rideDto ) {
-		commandService.sendRequestToDriver(rideDto);
+	 @PostMapping("/request/driver/{processInstanceId}")
+	public String sendRequestToDriver(@RequestBody RideDTO rideDto,@PathVariable String processInstanceId ) {
+		commandService.sendRequestToDriver(rideDto,processInstanceId);
 					return "RequestSend";
 		}
 	

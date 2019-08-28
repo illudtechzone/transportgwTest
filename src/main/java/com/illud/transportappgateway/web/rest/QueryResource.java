@@ -191,6 +191,6 @@ public class QueryResource {
 		return queryService.getAllPendingBookings(name,nameLike,assignee,assigneeLike,candidateUser,candidateGroup,candidateGroups,processInstanceId,processDefinitionId,processDefinitionKey,createdOn, createdBefore, createdAfter);
 
 	}
-
+		
 	
 }

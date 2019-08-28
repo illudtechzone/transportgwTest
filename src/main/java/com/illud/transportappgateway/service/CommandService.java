@@ -19,6 +19,7 @@ import com.illud.transportappgateway.client.transport.model.RideDTO;
 import com.illud.transportappgateway.client.transport.model.RideStatus;
 import com.illud.transportappgateway.client.transport.model.RiderDTO;
 import com.illud.transportappgateway.client.transport.model.RiderLocationInfo;
+import com.illud.transportappgateway.domain.RideDtoWrapper;
 
 
 public interface CommandService {
@@ -51,7 +52,7 @@ public interface CommandService {
 
 	ResponseEntity<Void> collectRiderLocationDetails(String taskId, DefaultInfoRequest defaultInfoRequest);
 
-	String sendRequestToDriver(RideDTO rideDto);
+	ResponseEntity<RideDtoWrapper>  sendRequestToDriver(RideDTO rideDto,String processInstanceId);
 
 	
 
