@@ -5,6 +5,15 @@ import com.illud.transportappgateway.client.transport.model.RideDTO;
 public class RideDtoWrapper {
 	private RideDTO rideDTO;
 	private String processInstanceId;
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public RideDTO getRideDTO() {
 		return rideDTO;

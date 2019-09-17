@@ -54,6 +54,8 @@ public interface CommandService {
 
 	ResponseEntity<RideDtoWrapper>  sendRequestToDriver(RideDTO rideDto,String processInstanceId);
 
+	ResponseEntity<RideDtoWrapper> sendStatusToCustomer(RideDTO rideDto, String status);
+
 	
 
 	

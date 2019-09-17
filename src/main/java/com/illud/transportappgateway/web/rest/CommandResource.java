@@ -122,7 +122,16 @@ public class CommandResource {
 	 @PostMapping("/request/driver/{processInstanceId}")
 	public ResponseEntity<RideDtoWrapper> sendRequestToDriver(@RequestBody RideDTO rideDto,@PathVariable String processInstanceId ) {
 		return commandService.sendRequestToDriver(rideDto,processInstanceId);
-				
 		}
+	 
+	 
+	 @PostMapping("/request/customer/{status}")
+		public ResponseEntity<RideDtoWrapper> sendStatusToCustomer(@RequestBody RideDTO rideDto,String status ) {
+			return commandService.sendStatusToCustomer(rideDto,status);
+			}
+	 
+	 
+	 
 	
 }
+	

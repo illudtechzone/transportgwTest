@@ -130,15 +130,29 @@ private CommandService commandService;
 		rideDtoWrapper.setProcessInstanceId(processInstanceId);
 		messageSender.convertAndSendToUser(rideDto.getDriverId(), "/topic/reply",rideDtoWrapper );
 		return ResponseEntity.ok().body(rideDtoWrapper);
-
-	
 	}
+	
+	
+	
+	
+	
 	public ResponseEntity<RideDtoWrapper> getRideWrapper(RideDtoWrapper rdw) {
-		
-		return ResponseEntity.ok().body(rdw);
+				return ResponseEntity.ok().body(rdw);
 
-	
 	}
+
+	@Override
+	public ResponseEntity<RideDtoWrapper> sendStatusToCustomer(RideDTO rideDto, String status) {
+		RideDtoWrapper rideDtoWrapper=new RideDtoWrapper();
+		rideDtoWrapper.setRideDTO(rideDto);
+		rideDtoWrapper.setStatus(status);
+		messageSender.convertAndSendToUser(rideDto.getRiderId(), "/topic/review",rideDtoWrapper );
+		
+		
+		return null;
+	}
+	
+	
 
 }
  
