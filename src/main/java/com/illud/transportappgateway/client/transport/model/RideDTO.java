@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * RideDTO
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-24T10:31:22.496+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-10-29T15:21:49.625+05:30[Asia/Calcutta]")
 
 public class RideDTO   {
   @JsonProperty("addressDestination")

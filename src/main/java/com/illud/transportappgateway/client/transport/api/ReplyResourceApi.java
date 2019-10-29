@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-08-24T10:31:22.496+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-10-29T15:21:49.625+05:30[Asia/Calcutta]")
 
 @Api(value = "ReplyResource", description = "the ReplyResource API")
 public interface ReplyResourceApi {
