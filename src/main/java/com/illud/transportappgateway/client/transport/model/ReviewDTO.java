@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * ReviewDTO
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-10-29T15:21:49.625+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-10-31T11:20:40.294+05:30[Asia/Calcutta]")
 
 public class ReviewDTO   {
   @JsonProperty("driverId")

@@ -38,7 +38,7 @@
         },
         "apis": {
             "transport": {
-                "spec": "http://35.239.128.233:8081/v2/api-docs"
+                "spec": "http://35.232.29.128:8081/v2/api-docs"
             }
         }
     }
